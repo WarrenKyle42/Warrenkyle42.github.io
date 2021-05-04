@@ -1,0 +1,165 @@
+<html>
+
+	<meta name="viewport" content="width=device-width, initual-scale=1">
+	<style>
+		body {
+			padding: 25px;
+			background-color: white;
+			color: black;
+			font-size: 25px;
+		}
+
+		.dark-mode {
+			background-color: black;
+			color: white;
+		}
+	</style>
+
+	<Head>
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</Head>
+	
+	<Body>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</Body>
+	
+	<Form onsubmit="return FindOutput()">
+	
+	
+<div class="row d-flex justify-content-center">
+<div class="col-md-2">
+  <div class="input-group-prepend">
+    <select class="custom-select" id="inputGroupSelect01" onchange="UpdateButton1()">
+	<option value="0">Choose</option>
+    <option value="1">Pressure</option>
+    <option value="2">Diameter</option>
+    <option value="3">Force</option> 
+  </select>
+  <div>
+  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="Field1">
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<div class="row d-flex justify-content-center">
+<div class="col-md-2">
+  <div class="input-group-prepend">
+    <select class="custom-select" id="inputGroupSelect02" onchange="UpdateButton2()">
+	<option value="0">Choose</option>
+    <option value="1">Pressure</option>
+    <option value="2">Diameter</option>
+    <option value="3">Force</option> 
+  </select>
+  <div>
+  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="Field2">
+  </div>
+  </div>
+  </div>
+  
+</div>
+
+
+
+<div class="row d-flex justify-content-center">
+			<div class="col-md-2">
+				<button class="btn btn-primary" type="submit">calculate</button>
+			</div>
+		</div>
+
+	</Form>
+	
+	<Body>
+		<div class="row d-flex justify-content-center">
+				<div class="col-md-2">
+					<h1 id="TestOutput"></h1>	
+				</div>
+		</div>
+		<br>
+		<div class="row d-flex justify-content-center">
+				<div class="col-md-2">
+					<button onclick="DarkMode()">Toggle dark mode</button>
+				</div>
+			</div>
+	</Body>
+	
+	<script>
+	
+		var Button1Input = Bruh;
+		var Button2Input = Bruh;
+		
+		function UpdateButton1(){
+		var d=document.getElementById("inputGroupSelect01");
+		Button1Input=d.options[d.selectedIndex].text;
+		//document.getElementById("Field1").value=Button1Input;
+		//document.getElementById("TestInput1").innerHTML=Button1Input;
+		FindOutput();
+		}
+		
+		function UpdateButton2(){
+		var d=document.getElementById("inputGroupSelect02");
+		Button2Input=d.options[d.selectedIndex].text;
+		//document.getElementById("Field2").value=Button2Input;
+		//document.getElementById("TestInput2").innerHTML=Button2Input;
+		FindOutput();
+		}
+		
+		function FindOutput(){
+			var Pressure;
+			var Diameter;
+			var Force;
+			
+			if(Button1Input==="Pressure"){
+				Pressure=document.getElementById("Field1").value;
+			}else if(Button1Input==="Diameter"){
+				Diameter=document.getElementById("Field1").value;
+			}else if(Button1Input==="Force"){
+				Force=document.getElementById("Field1").value;
+			}
+			
+			if(Button2Input==="Pressure"){
+				Pressure=document.getElementById("Field2").value;
+			}else if(Button2Input==="Diameter"){
+				Diameter=document.getElementById("Field2").value;
+			}else if(Button2Input==="Force"){
+				Force=document.getElementById("Field2").value;
+			}
+			
+
+			if(Button1Input === "Pressure" && Button2Input === "Diameter" || Button1Input === "Diameter" && Button2Input === "Pressure"){
+				
+				
+				var ExtendForce=Pressure*(Math.pow((Diameter/2),2)*Math.PI);
+				
+				document.getElementById("TestOutput").innerHTML="The extend force Is "+ExtendForce.toFixed(2)+"lbs";
+				
+			}else if(Button1Input === "Force" && Button2Input === "Pressure" || Button1Input === "Pressure" && Button2Input === "Force"){
+				
+				var DiameterOutput=Math.sqrt(Force/Pressure/Math.PI)*2;
+				
+				document.getElementById("TestOutput").innerHTML="The Diameter is "+DiameterOutput.toFixed(2);
+			
+			}else if(Button1Input === "Diameter" && Button2Input === "Force" || Button1Input === "Force" && Button2Input === "Diameter"){
+				
+				var PressureOutput=Force/(Math.pow((Diameter/2),2)*Math.PI)
+				
+				document.getElementById("TestOutput").innerHTML="The Pressure is "+PressureOutput.toFixed(2);
+			}else{
+				document.getElementById("TestOutput").innerHTML="Error 69420";
+			}
+			
+			return false;
+		}
+		
+		function DarkMode() {
+			var element = document.body;
+			element.classList.toggle("dark-mode");
+		}
+		
+	</script>
+</html>
