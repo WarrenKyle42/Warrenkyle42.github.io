@@ -15,10 +15,6 @@ html, body{
 .nav-link{
 	font-size: 1.1em !Important;
 }
-.img-fluid{
-	max-width: 30%;
-  	height: auto;
-}
 .btn-primary{
 	background-color: #6648b1;
 	border: 1px solid #6648b1;
@@ -77,6 +73,10 @@ html, body{
 	max-width: 100%;
   	height: auto;
 }
+.sm-image{
+	width: 50%;
+}
+
 
 
 .fa-facebook:hover,.fa-twitter:hover,.fa-google-plus-g:hover,.fa-instagram:hover,.fa-youtube:hover{

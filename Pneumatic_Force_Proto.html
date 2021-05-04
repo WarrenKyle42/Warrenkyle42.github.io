@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Complete Bootstrap 4 Website Layout</title>
+	<title>Pneumatic Force Calculator</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -15,9 +15,9 @@
 </head>
 <body>
 	
-	<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 <div class="container-fluid">
-	<a class="navbar-brand" href="https://www.dairyqueen.com/en-us/"><img src="img/DQLogo.png" class="img-fluid" alt="Responsive image"></a>
+	<a class="navbar-brand" href="https://www.dairyqueen.com/en-us/"><img src="img/DQLogo.png" class="sm-image" alt="Responsive image"></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -33,20 +33,13 @@
 	</div>
 </div>
 </nav>
-	
-<Form onsubmit="return FindOutput()">
-	
-<div class="container-fluid padding">
-<div class="row welcome text-center">
-	<div class="col-12">
-		<img class="PneumaticForce" src="img/PneumaticForce.jpg">
-	</div>
-</div>
-</div>
 
-</form>
-	
+<div class="text-center">
+  <img src="img/PneumaticForce.jpg" class="img-fluid" alt="...">
+</div>
 <Form onsubmit="return FindOutput()">
+	
+	
 <div class="row d-flex justify-content-center">
 <div class="col-md-2">
   <div class="input-group-prepend">
@@ -63,30 +56,36 @@
 </div>
 </div>
 
-</form>
 
-<body>
-<div class="container-fluid padding">
-<div class="row text-center padding">
-<div class="col-md-4">
-  <h3>test</h3>
+
+<div class="row d-flex justify-content-center">
+<div class="col-md-2">
+  <div class="input-group-prepend">
+    <select class="custom-select" id="inputGroupSelect02" onchange="UpdateButton2()">
+	<option value="0">Choose</option>
+    <option value="1">Pressure</option>
+    <option value="2">Diameter</option>
+    <option value="3">Force</option> 
+  </select>
+  <div>
+  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="Field2">
+  </div>
+  </div>
+  </div>
+  
 </div>
-</div>
-</div>
-</body>
 
 
-<Form onsubmit="return FindOutput()">
 
-		<div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center">
 			<div class="col-md-2">
 				<button class="btn btn-primary" type="submit">calculate</button>
 			</div>
 		</div>
-</form>
 
-</Form>
-	<hr class="my-4">
+	</Form>
+	
+	<Body>
 		<div class="row d-flex justify-content-center">
 				<div class="col-md-2">
 					<h1 id="TestOutput"></h1>	
@@ -168,4 +167,5 @@
 		}
 		
 	</script>
+</body>
 </html>
