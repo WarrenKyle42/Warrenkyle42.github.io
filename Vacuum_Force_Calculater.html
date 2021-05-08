@@ -33,7 +33,7 @@
 </nav>
 
 	<div class="text-center">
-		<img src="img/PneumaticForce.jpg" class="img-fluid" alt="...">
+		<img src="graphics/vacuum-force.png" class="img-fluid" alt="...">
 	</div>
 
 <Form onsubmit="return FindOutput()">
@@ -72,7 +72,14 @@
 </div>
 </div>
 
-
+<div class="row d-flex justify-content-center">
+<div class="col-md-2">
+	<div class="input-group-prepend">
+      <div class="input-group-text">Safety Factor</div>
+		<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-asson1" id="field3">
+	</div>
+</div>
+</div>
 
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-2">
@@ -125,16 +132,12 @@
 		function UpdateButton1(){
 		var d=document.getElementById("inputGroupSelect01");
 		Button1Input=d.options[d.selectedIndex].text;
-		//document.getElementById("Field1").value=Button1Input;
-		//document.getElementById("TestInput1").innerHTML=Button1Input;
 		FindOutput();
 		}
 		
 		function UpdateButton2(){
 		var d=document.getElementById("inputGroupSelect02");
 		Button2Input=d.options[d.selectedIndex].text;
-		//document.getElementById("Field2").value=Button2Input;
-		//document.getElementById("TestInput2").innerHTML=Button2Input;
 		FindOutput();
 		}
 		
@@ -142,6 +145,7 @@
 			var Pressure;
 			var Diameter;
 			var Force;
+			var SafetyFactor=document.getElementById("field3").value;
 			
 			if(Button1Input==="Pressure"){
 				Pressure=document.getElementById("Field1").value;
@@ -163,19 +167,19 @@
 			if(Button1Input === "Pressure" && Button2Input === "Diameter" || Button1Input === "Diameter" && Button2Input === "Pressure"){
 				
 				
-				var ExtendForce=Pressure*(Math.pow((Diameter/2),2)*Math.PI);
+				var LiftingForce=((Pressure*.491)*(Math.pow((Diameter/2),2)*Math.PI))/SafetyFactor;
 				
-				document.getElementById("TestOutput").innerHTML="The extend force Is "+ExtendForce.toFixed(2)+"lbs";
+				document.getElementById("TestOutput").innerHTML="The Lifting Force is "+LiftingForce.toFixed(2)+"lbs";
 				
 			}else if(Button1Input === "Force" && Button2Input === "Pressure" || Button1Input === "Pressure" && Button2Input === "Force"){
 				
-				var DiameterOutput=Math.sqrt(Force/Pressure/Math.PI)*2;
+				var DiameterOutput=Math.sqrt((Force*SafetyFactor)/(Pressure*.491)/Math.PI)*2;
 				
 				document.getElementById("TestOutput").innerHTML="The Diameter is "+DiameterOutput.toFixed(2);
 			
 			}else if(Button1Input === "Diameter" && Button2Input === "Force" || Button1Input === "Force" && Button2Input === "Diameter"){
 				
-				var PressureOutput=Force/(Math.pow((Diameter/2),2)*Math.PI)
+				var PressureOutput=(Force*SafetyFactor)/(Math.pow((Diameter/2),2)*Math.PI)/.491;
 				
 				document.getElementById("TestOutput").innerHTML="The Pressure is "+PressureOutput.toFixed(2);
 			}else{
