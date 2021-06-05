@@ -1,121 +1,229 @@
-<html>
-	<html lang="en">
+<html lang="en">
+
 <head>
+	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Pneumatic Force Calculator</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!--centering-->
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link href="style.css" rel="stylesheet"> <!-- Style Sheet -->
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script> <!-- Fonts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="style.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
 </head>
+
 <body>
-	
-<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-<div class="container-fluid">
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarResponsive">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="index.html">Home</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="https://youtu.be/dQw4w9WgXcQ">Don't Click</a>
-			</li>
-		</ul>
-	</div>
-</div>
-</nav>
-
-	<div class="text-center">
-		<img src="Graphics/Pneumatic_Force/Graphic.PNG" class="img-fluid" alt="...">
-	</div>
-
-<Form onsubmit="return FindOutput()">
-
-<div class="row d-flex justify-content-center">
-<div class="col-md-2">
-	<div class="input-group-prepend">
-		<select class="custom-select" id="inputGroupSelect01" onchange="UpdateButton1()">
-			<option value="0">Choose</option>
-			<option value="1">Pressure</option>
-			<option value="2">Diameter</option>
-			<option value="3">Force</option> 
-		</select>
-			<div>
-				<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="Field1">
-			</div>
-	</div>
-</div>
-</div>
-
-
-
-<div class="row d-flex justify-content-center">
-<div class="col-md-2">
-	<div class="input-group-prepend">
-		<select class="custom-select" id="inputGroupSelect02" onchange="UpdateButton2()">
-			<option value="0">Choose</option>
-			<option value="1">Pressure</option>
-			<option value="2">Diameter</option>
-			<option value="3">Force</option> 
-		</select>
-			<div>
-				<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="Field2">
-			</div>
-	</div>
-</div>
-</div>
-
-
-
-		<div class="row d-flex justify-content-center">
-			<div class="col-md-2">
-				<button class="btn btn-primary" type="submit">calculate</button>
-			</div>
-		</div>
-
-	</Form>
-	
-		<div class="row d-flex justify-content-center">
-				<div class="col-md-2">
-					<h1 id="TestOutput"></h1>	
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-start" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.html">Home</a>
+					</li>	
+				</ul>
 				</div>
+				<div class="collapse navbar-collapse justify-content-end">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="https://youtu.be/dQw4w9WgXcQ">Don't Click</a>
+						</li>
+					</ul>
+				  </div>
 		</div>
+		</nav>
 
-	<div class="push"></div>
-	
-	
-<section class="" id="Connect" data-spy="Connect" data-target="#Connect">
-	<footer>
-		<div class="container-fluid padding">
-		<div class="row text-center">
-			<div class="col-md-4">
-				<hr class="light">
-					<h5>Please Report Bugs To</h5>
-				<hr class="light">
-					<p>Warrenkyle42@gmail</p>
+		<div class="container-fluid">
+			<div class="row welcome text-center">
+				<div class="col-12">
+					<h1 class="display-4">Pneumatic Force</h1>
+					<img src="Graphics/Pneumatic_Force/Graphic.PNG" class="img-fluid" alt="...">
+				</div>
 			</div>
-			<div class="col-md-8 social">
-				<a href="https://www.facebook.com/kyle.warren.52206/"><i class="fab fa-facebook"></i></a>
-				<a href="https://twitter.com/Kyle_Warren42"><i class="fab fa-twitter"></i></a>
-				<a href="https://www.instagram.com/kylew124/"><i class="fab fa-instagram"></i></a>
-				<a href="https://www.youtube.com/channel/UCP4pqR4KV47GKQzWnwDMdIQ/videos"><i class="fab fa-youtube"></i></a>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<label class="switch">
+					<input type="checkbox" id="togBtn" onclick="swap()">
+					<div class="slider round"></div>
+				</label>
 			</div>
+		</div>
+	</div>
+
+<Form class=""  onsubmit="return FindOutput()" id="Extend">
+
+	<div class="row justify-content-center mx-auto p-2" id="retract">
+		<div class="col-lg-4 col-md-6 col-sm-8">
+			<div class="input-group">
+				<select class="form-select" id="inputGroupSelect01" onchange="UpdateButton1()">
+					<option value="0">Choose</option>
+					<option value="1">Pressure</option>
+					<option value="2">Diameter</option>
+					<option value="3">Force</option> 
+				</select>
+					<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="Field1">
+			</div>
+		</div>
+	</div>
 	
-	<div class="col-12">
-		<hr class="light-100">
-		<h5>&copy; BruhMoment.gov</h5>
+	<div class="row justify-content-center mx-auto p-2">
+		<div class="col-lg-4 col-md-6 col-sm-8">
+			<div class="input-group">
+				<select class="form-select" id="inputGroupSelect02" onchange="UpdateButton2()">
+					<option value="0">Choose</option>
+					<option value="1">Pressure</option>
+					<option value="2">Diameter</option>
+					<option value="3">Force</option> 
+				</select>
+					<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="Field2">
+			</div>
+		</div>
+	</div>
+
+	<div class="d-grid gap-2 col-4 mx-auto">
+			<button class="btn btn-primary" type="submit">calculate</button>
+	</div>
+
+</container>
+</Form>
+
+<Form class=""  onsubmit="return FindOutput()" id="Retract">
+
+	<div class="row justify-content-center mx-auto p-2" id="retract">
+		<div class="col-lg-4 col-md-6 col-sm-8">
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+				  <span class="input-group-text" id="inputGroup-sizing-default">Bore Diameter</span>
+				</div>
+				<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+			  </div>
+		</div>
+	</div>
+	
+	<div class="row justify-content-center mx-auto p-2" id="retract">
+		<div class="col-lg-4 col-md-6 col-sm-8">
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+				  <span class="input-group-text" id="inputGroup-sizing-default">Rod Diameter</span>
+				</div>
+				<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+			  </div>
+		</div>
+	</div>
+
+	<div class="row justify-content-center mx-auto p-2">
+		<div class="col-lg-4 col-md-6 col-sm-8">
+			<div class="input-group">
+				<select class="form-select" id="inputGroupSelect02" onchange="UpdateButton2()">
+					<option value="0">Choose</option>
+					<option value="1">Pressure</option>
+					<option value="2">Diameter</option>
+					<option value="3">Force</option> 
+				</select>
+					<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" id="Field2">
+			</div>
+		</div>
+	</div>
+
+	<div class="d-grid gap-2 col-4 mx-auto">
+			<button class="btn btn-primary" type="submit">calculate</button>
+	</div>
+
+</container>
+</Form>
+
+<div class="row">
+	<div class="col text-center">
+		<h1 id="TestOutput"></h1>	
 	</div>
 </div>
-</div>
-</footer>
-</section>
+
+<section class="" id="Connect" data-spy="Connect" data-target="#Connect">
+	<footer class="footer navbar-fixed-bottom">
+		<div class="container-fluid padding">
+			<div class="row text-center">
+				<div class="col-md-4">
+					<hr class="light">
+					<h5>Please Report Bugs To</h5>
+					<hr class="light">
+					<p>Warrenkyle42@gmail</p>
+				</div>
+				
+				<div class="col-md-8 social">
+					<a href="https://www.facebook.com/kyle.warren.52206/"><i class="fab fa-facebook"></i></a>
+					<a href="https://twitter.com/Kyle_Warren42"><i class="fab fa-twitter"></i></a>
+					<a href="https://www.instagram.com/kylew124/"><i class="fab fa-instagram"></i></a>
+					<a href="https://www.youtube.com/channel/UCP4pqR4KV47GKQzWnwDMdIQ/videos"><i class="fab fa-youtube"></i></a>
+					<a href="https://github.com/WarrenKyle42/Warrenkyle42.github.io"><i class="fab fa-github"></i></a>
+				</div>
+				
+				<div class="col-12">
+					<hr class="light-100">
+					<h5>&copy; BruhMoment.gov</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+</body>
+</html>
+
+<script>
+	function swap(referTo){
+		if(referTo.getAttribute("data-tab")=="extend"){
+			document.getElementById('form-body').classList.remove('active');
+			referTo.parentNode.classList.remove("extend");
+		}else{
+			document.getElementById('form-body').classList.add('active');
+			referTo.parentNode.classList.remove("extend");
+		}
+	}
+</script>
+
+<script>
+	function toggleText(){
+	  var e = document.getElementById("Extend");
+	  var r = document.getElementById("Retract");
+	  if (r.style.display === "none") {
+		r.style.display = "block";
+		e.style.display = "none"
+	  } else {
+		r.style.display = "none";
+		e.style.display = "block";
+	  }
+	}
+</script>
+
+<script>
+
+	// Example starter JavaScript for disabling form submissions if there are invalid fields
+	(function() {
+	  'use strict';
+	  window.addEventListener('load', function() {
+		// Fetch all the forms we want to apply custom Bootstrap validation styles to
+		var forms = document.getElementsByClassName('needs-validation');
+		// Loop over them and prevent submission
+		var validation = Array.prototype.filter.call(forms, function(form) {
+		  form.addEventListener('submit', function(event) {
+			if (form.checkValidity() === false) {
+			  event.preventDefault();
+			  event.stopPropagation();
+			}
+			form.classList.add('was-validated');
+		  }, false);
+		});
+	  }, false);
+	})();
+	</script>
 
 	<script>
 	
